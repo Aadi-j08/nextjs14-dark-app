@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* ── Core Backgrounds ── */
+  --bg-primary:   #08080c;
+  --bg-secondary: #0e0e14;
+  --bg-card:      #131319;
+
+  /* ── Brand Gradient: Yellow ↔ Purple ── */
+  --gold:         #f59e0b;
+  --gold-light:   #fbbf24;
+  --gold-dim:     #d97706;
+  --purple:       #7c3aed;
+  --purple-light: #a855f7;
+  --purple-dim:   #6d28d9;
+
+  /* ── Accent (replaces ocean-blue) ── */
+  --accent:       #a855f7;         /* purple as main accent */
+  --accent-2:     #f59e0b;         /* gold as secondary accent */
+  --deep-blue:    #6d28d9;         /* kept for compat, now deep purple */
+  --ocean-blue:   #a855f7;         /* alias → purple so old refs still work */
+
+  /* ── Text ── */
+  --text-primary: #f5f3ff;
+  --text-muted:   #6b7280;
+}
+
+html,
+body {
+  color: var(--text-primary);
+  background: var(--bg-primary);
+  font-family: Arial, Helvetica, sans-serif;
+  color-scheme: dark;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(168, 85, 247, 0.35) var(--bg-secondary);
+}
+
+*::-webkit-scrollbar      { width: 6px; height: 6px; }
+*::-webkit-scrollbar-track { background: var(--bg-secondary); }
+*::-webkit-scrollbar-thumb {
+  background: rgba(168, 85, 247, 0.35);
+  border-radius: 999px;
+}
+*::-webkit-scrollbar-thumb:hover {
+  background: rgba(245, 158, 11, 0.5);
+}
+
+/* Gradient text utility */
+.grad-text {
+  background: linear-gradient(135deg, var(--gold-light) 0%, var(--purple-light) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+@layer utilities {
+  .text-balance { text-wrap: balance; }
+}
